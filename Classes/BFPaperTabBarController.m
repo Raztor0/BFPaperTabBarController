@@ -302,17 +302,19 @@ CGFloat const bfPaperTabBarController_tapCircleDiameterDefault = -2.f;
         CGPoint location = [longPress locationInView:longPress.view];
         //NSLog(@"pressed at location (%0.2f, %0.2f)", location.x, location.y);
         
-        
+        BOOL shouldPerform = YES;
         for (int i = 0; i < self.invisibleTappableTabRects.count; i++) {
             CGRect rect = [[self.invisibleTappableTabRects objectAtIndex:i] CGRectValue];
             if (CGRectContainsPoint(rect, location)) {
                 if([[self delegate] respondsToSelector:@selector(tabBarController:shouldSelectViewController:)]) {
-                    [self.delegate tabBarController:self shouldSelectViewController:[self.viewControllers objectAtIndex:i]];
+                    shouldPerform = [self.delegate tabBarController:self shouldSelectViewController:[self.viewControllers objectAtIndex:i]];
                 }
             }
         }
         
-        [self selectTabForPoint:location];
+        if(shouldPerform) {
+            [self selectTabForPoint:location];
+        }
         
         self.tapPoint = location;
 //        self.tapPoint = CGPointMake(newLocation.x, location.y);
