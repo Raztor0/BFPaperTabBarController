@@ -118,7 +118,7 @@ self.underlineThickness = 4.f;    // Set this to adjust the thickness (height) o
 self.showTapCircleAndBackgroundFade = NO; // YES = show the tap-circles and add a color fade the background. NO = do not show the tap-circles and background fade.
 ```
 
-Cocoapods
+CocoaPods
 -------
 
 CocoaPods are the best way to manage library dependencies in Objective-C projects.
@@ -127,7 +127,7 @@ Learn more at http://cocoapods.org
 Add this to your podfile to add BFPaperTabBarController to your project.
 ```ruby
 platform :ios, '7.0'
-pod 'BFPaperTabBarController', '~> 2.1.10'
+pod 'BFPaperTabBarController', '~> 2.1.11'
 ```
 
 
