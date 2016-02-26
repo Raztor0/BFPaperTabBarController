@@ -360,6 +360,10 @@ CGFloat const bfPaperTabBarController_tapCircleDiameterDefault = -2.f;
     self.selectedTabIndex = index;
     [self setUnderlineForTabIndex:index animated:animated];
     [self setBackgroundFadeLayerForTabAtIndex:index];
+    
+    if([[self delegate] respondsToSelector:@selector(tabBarController:didSelectViewController:)]) {
+        [self.delegate tabBarController:self didSelectViewController:[self.viewControllers objectAtIndex:index]];
+    }
 }
 
 
